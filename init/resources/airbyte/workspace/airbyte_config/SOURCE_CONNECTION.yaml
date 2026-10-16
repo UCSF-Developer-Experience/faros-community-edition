@@ -4,11 +4,11 @@
   workspaceId: "b740a9b4-048b-4500-b41b-038e14a3f2d5"
   sourceId: "5d9079ca-8173-406f-bfdb-41f19c62daff"
   configuration:
-    repository: "github/repo1 github/repo2"
-    start_date: "2022-01-01T00:00:00Z"
+    repository: "{{github_repos}}"
+    start_date: "{{github_start_date}}"
     credentials:
       option_title: "PAT Credentials"
-      personal_access_token: "My Personal Access Token"
+      personal_access_token: "{{github_pat}}"
     page_size_for_large_streams: 10
   tombstone: false
 - name: "My Jira Source"

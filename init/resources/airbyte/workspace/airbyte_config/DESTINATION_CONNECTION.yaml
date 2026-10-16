@@ -8,8 +8,8 @@
     jsonata_mode: "FALLBACK"
     edition_configs:
       edition: "community"
-      hasura_url: "http://localhost:8080"
-      segment_user_id: "{{ segment_user_id }}"
+      hasura_url: "http://host.docker.internal:8080"
+      segment_user_id: ""
     invalid_record_strategy: "SKIP"
     source_specific_configs:
       jira:

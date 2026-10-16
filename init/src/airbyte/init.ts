@@ -56,6 +56,10 @@ export class AirbyteInit {
     return path.join(dir, 'airbyte_config', 'DESTINATION_CONNECTION.yaml');
   }
 
+  private static getSourceTemplatePath(dir: string): string {
+    return path.join(dir, 'airbyte_config', 'SOURCE_CONNECTION.yaml');
+  }
+
   static makeSegmentUser(): SegmentUser {
     const envEmail = process.env.FAROS_EMAIL;
     if (envEmail && envEmail !== undefined && envEmail !== '') {
@@ -133,6 +137,18 @@ export class AirbyteInit {
       handlebars.compile(destTemplate)({segment_user_id: segmentUser.userId}),
       'utf-8'
     );
+    const srcTemplatePath = AirbyteInit.getSourceTemplatePath(tmpDir);
+    const srcTemplate = await fs.readFile(srcTemplatePath, 'utf-8');
+    await fs.writeFile(
+      srcTemplatePath,
+      handlebars.compile(srcTemplate)({
+        github_pat: process.env.FAROS_GITHUB_PAT ?? '',
+        github_repos: process.env.FAROS_GITHUB_REPOS ?? '',
+        github_start_date:
+          process.env.FAROS_GITHUB_START_DATE ?? '2022-01-01T00:00:00Z',
+      }),
+      'utf-8'
+    );
     const workspaceZipPath = path.join(tmpDir, 'workspace.tar.gz');
     try {
       await tar.create(
@@ -182,7 +198,7 @@ export class AirbyteInit {
   }
 
   async setupFarosDestinationDefinition(): Promise<void> {
-    const version = await AirbyteInit.getLatestFarosDestinationVersion();
+    const version = '0.1.39'; // pinned — later versions dropped Community Edition
     const listResponse = await this.api.post('/destination_definitions/list');
     const destDefs = listResponse.data.destinationDefinitions;
     const farosDestDef = find(
@@ -228,8 +244,7 @@ async function main(): Promise<void> {
     })
   );
 
-  const segmentUser = AirbyteInit.makeSegmentUser();
-  await AirbyteInit.sendIdentity(segmentUser);
+  const segmentUser = {userId: '', email: ''};
 
   await airbyte.waitUntilHealthy();
   await airbyte.setupWorkspace(segmentUser, forceSetup === 'true');
