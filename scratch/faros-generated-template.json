@@ -1,0 +1,21 @@
+{
+  "src": {
+    "image": "farosai/airbyte-github-source:0.23.48",
+    "config": {
+      "authentication": {
+        "type": "token",
+        "personal_access_token": "<UPDATE_YOUR_CREDENTIAL>"
+      }
+    }
+  },
+  "dst": {
+    "image": "farosai/airbyte-faros-destination",
+    "config": {
+      "edition_configs": {
+        "tenant_id": "<UPDATE_YOUR_TENANT_ID>",
+        "api_key": "<UPDATE_YOUR_CREDENTIAL>",
+        "edition": "cloud"
+      }
+    }
+  }
+}

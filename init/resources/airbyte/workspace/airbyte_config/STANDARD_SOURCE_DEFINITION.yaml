@@ -8494,109 +8494,57 @@
     supported_destination_sync_modes: []
 - sourceDefinitionId: "ef69ef6e-aa7f-4af1-a01d-ef775033524e"
   name: "GitHub"
-  dockerRepository: "airbyte/source-github"
-  dockerImageTag: "0.2.19"
-  documentationUrl: "https://docs.airbyte.io/integrations/sources/github"
+  dockerRepository: "farosai/airbyte-github-source"
+  dockerImageTag: "0.23.48"
+  documentationUrl: "https://docs.faros.ai"
   icon: "github.svg"
   spec:
-    documentationUrl: "https://docs.airbyte.io/integrations/sources/github"
+    documentationUrl: "https://docs.faros.ai"
     connectionSpecification:
       type: "object"
-      title: "GitHub Source Spec"
+      title: "Github Spec"
       $schema: "http://json-schema.org/draft-07/schema#"
       required:
-      - "start_date"
-      - "repository"
+      - "authentication"
       properties:
-        branch:
+        url:
           type: "string"
-          title: "Branch"
-          examples:
-          - "airbytehq/airbyte/master airbytehq/airbyte/my-branch"
-          description: "Space-delimited list of GitHub repository branches to pull\
-            \ commits for, e.g. `airbytehq/airbyte/master`. If no branches are specified\
-            \ for a repository, the default branch will be pulled."
-        repository:
-          type: "string"
-          title: "GitHub Repositories"
-          examples:
-          - "airbytehq/airbyte airbytehq/another-repo"
-          - "airbytehq/*"
-          - "airbytehq/airbyte"
-          description: "Space-delimited list of GitHub organizations/repositories,\
-            \ e.g. `airbytehq/airbyte` for single repository, `airbytehq/*` for get\
-            \ all repositories from organization and `airbytehq/airbyte airbytehq/another-repo`\
-            \ for multiple repositories."
+          title: "GitHub API URL"
+          description: "GitHub API URL, e.g for GitHub Enterprise: https://my-ghe-host.com/api/v3"
+        authentication:
+          type: "object"
+          title: "Authentication"
+          description: "Choose your GitHub authentication method"
+          oneOf:
+          - type: "object"
+            title: "Personal Access Token"
+            required:
+            - "type"
+            - "personal_access_token"
+            properties:
+              type:
+                type: "string"
+                const: "token"
+              personal_access_token:
+                type: "string"
+                title: "Personal Access Token"
+                airbyte_secret: true
+        repositories:
+          type: "array"
+          title: "Repositories list"
+          items:
+            type: "string"
+        cutoff_days:
+          type: "integer"
+          title: "Cutoff Days"
+          default: 90
         start_date:
           type: "string"
           title: "Start Date"
-          pattern: "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
-          examples:
-          - "2021-03-01T00:00:00Z"
-          description: "The date from which you'd like to replicate data for GitHub\
-            \ in the format YYYY-MM-DDT00:00:00Z. All data generated after this date\
-            \ will be replicated. Note that it will be used only in the following\
-            \ incremental streams: comments, commits and issues."
-        credentials:
-          type: "object"
-          oneOf:
-          - type: "object"
-            title: "Authenticate via GitHub (OAuth)"
-            required:
-            - "access_token"
-            properties:
-              access_token:
-                type: "string"
-                title: "Access Token"
-                description: "OAuth access token"
-                airbyte_secret: true
-              option_title:
-                type: "string"
-                const: "OAuth Credentials"
-                title: "Credentials Title"
-                description: "OAuth Credentials"
-          - type: "object"
-            title: "Authenticate with Personal Access Token"
-            required:
-            - "personal_access_token"
-            properties:
-              option_title:
-                type: "string"
-                const: "PAT Credentials"
-                title: "Credentials Title"
-                description: "PAT Credentials"
-              personal_access_token:
-                type: "string"
-                title: "Personal Access Tokens"
-                description: "Log into GitHub and then generate a <a href=\"https://github.com/settings/tokens\"\
-                  > personal access token</a>. To load balance your API quota consumption\
-                  \ across multiple API tokens, input multiple tokens separated with\
-                  \ \",\""
-                airbyte_secret: true
-          title: "Authentication Mechanism"
-          description: "Choose how to authenticate to GitHub"
-        page_size_for_large_streams:
-          type: "integer"
-          title: "Page size for large streams"
-          default: 10
-          maximum: 100
-          minimum: 1
-          description: "The Github connector contains several streams with a large\
-            \ load. The page size of such streams depends on the size of your repository.\
-            \ Recommended to specify values between 10 and 30."
       additionalProperties: true
     supportsNormalization: false
     supportsDBT: false
     supported_destination_sync_modes: []
-    authSpecification:
-      auth_type: "oauth2.0"
-      oauth2Specification:
-        rootObject:
-        - "credentials"
-        - "0"
-        oauthFlowInitParameters: []
-        oauthFlowOutputParameters:
-        - - "access_token"
 - sourceDefinitionId: "eff3616a-f9c3-11eb-9a03-0242ac130003"
   name: "Google Analytics"
   dockerRepository: "airbyte/source-google-analytics-v4"

@@ -1,0 +1,23 @@
+{
+  "src": {
+    "image": "farosai/airbyte-github-source:0.23.48",
+    "config": {
+      "authentication": {
+        "type": "token",
+        "personal_access_token": "__PAT_PLACEHOLDER__"
+      },
+      "repositories": ["InfraLore/make_for_devops"],
+      "cutoff_days": 30
+    }
+  },
+  "dst": {
+    "image": "farosai/airbyte-faros-destination",
+    "config": {
+      "edition_configs": {
+        "edition": "community",
+        "hasura_url": "http://localhost:8080",
+        "hasura_admin_secret": "admin"
+      }
+    }
+  }
+}
