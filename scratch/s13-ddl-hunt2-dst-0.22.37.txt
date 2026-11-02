@@ -1,0 +1,11 @@
+--- package.json
+{
+  "name": "@faros-ai/canonical-models",
+  "version": "0.0.0-stub",
+  "description": "Stub types for @faros-ai/canonical-models",
+  "main": "index.js",
+  "types": "index.d.ts"
+}--- tree (depth 3)
+--- files mentioning UserEmail
+--- faros-js-client schema-ish files
+/home/node/airbyte/node_modules/faros-js-client/resources/introspection-query.gql

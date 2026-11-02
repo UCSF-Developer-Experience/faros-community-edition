@@ -1,0 +1,4 @@
+== vcs_UserEmail org:faros-ai
+== vcs_PullRequestLabel org:faros-ai
+== faros_Tag org:faros-ai
+== CREATE TABLE vcs_UserEmail

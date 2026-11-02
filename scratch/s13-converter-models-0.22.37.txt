@@ -1,0 +1,35 @@
+faros_artifacts.js: cicd_Artifact cicd_Repository 
+faros_code_scanning_alerts.js: vcs_RepositoryVulnerability 
+faros_commits.js: vcs_Branch vcs_BranchCommitAssociation vcs_Commit 
+faros_copilot_seats.js: vcs_AssistantMetric vcs_OrganizationTool vcs_UserTool vcs_UserToolLicense vcs_UserToolUsage 
+faros_copilot_user_usage.js: 
+faros_dependabot_alerts.js: vcs_RepositoryVulnerability 
+faros_deployments.js: cicd_Artifact cicd_ArtifactCommitAssociation cicd_ArtifactDeployment cicd_Deployment vcs_Commit 
+faros_enterprise_copilot_seats.js: 
+faros_enterprise_copilot_user_usage.js: vcs_AssistantMetric vcs_UserToolUsage 
+faros_enterprise_premium_requests.js: vcs_AssistantMetric 
+faros_enterprise_saml_sso_users.js: 
+faros_enterprise_team_memberships.js: 
+faros_enterprise_teams.js: 
+faros_enterprise_users.js: 
+faros_enterprises.js: vcs_Organization 
+faros_issue_comments.js: 
+faros_issues.js: tms_Label tms_Task tms_TaskAssignment tms_TaskBoardRelationship tms_TaskProjectRelationship tms_TaskTag 
+faros_labels.js: tms_Label vcs_Label 
+faros_organizations.js: cicd_Organization 
+faros_outside_collaborators.js: 
+faros_projects.js: tms_Project tms_TaskBoard tms_TaskBoardProjectRelationship 
+faros_pull_request_comments.js: 
+faros_pull_requests.js: vcs_Branch vcs_Commit vcs_File vcs_Label vcs_PullRequest vcs_PullRequestComment vcs_PullRequestFile vcs_PullRequestLabel vcs_PullRequestReview vcs_PullRequestReviewRequest 
+faros_releases.js: 
+faros_repositories.js: cicd_Repository compute_Application faros_Tag faros_VcsRepositoryOptions tms_Project tms_ProjectBoard tms_TaskBoard tms_TaskBoardProjectRelationship vcs_Repository vcs_RepositoryTag 
+faros_saml_sso_users.js: 
+faros_secret_scanning_alerts.js: vcs_RepositoryVulnerability 
+faros_stats.js: faros_MetricDefinition faros_MetricValue faros_MetricValueTag faros_Tag vcs_RepositoryMetric 
+faros_tags.js: 
+faros_team_memberships.js: vcs_TeamMembership 
+faros_teams.js: vcs_Team 
+faros_users.js: vcs_Membership vcs_User vcs_UserEmail 
+faros_workflow_jobs.js: cicd_BuildStatus cicd_BuildStep 
+faros_workflow_runs.js: 
+faros_workflows.js: 

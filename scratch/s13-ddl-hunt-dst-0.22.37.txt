@@ -1,0 +1,34 @@
+--- sql/graphql/gql files outside proc
+/home/node/airbyte/destinations/airbyte-faros-destination/resources/vcsRepositoryQueryDistinct.gql
+/home/node/airbyte/destinations/airbyte-faros-destination/resources/cicdArtifactVulnerabilityQuery.gql
+/home/node/airbyte/destinations/airbyte-faros-destination/resources/vcsRepositorySingleQuery.gql
+/home/node/airbyte/destinations/airbyte-faros-destination/resources/cicdArtifactQueryByCommitSha.gql
+/home/node/airbyte/destinations/airbyte-faros-destination/resources/vcsRepositoryQueryOnDistinctOrg.gql
+/home/node/airbyte/destinations/airbyte-faros-destination/resources/vcsRepositoryVulnerabilityQuery.gql
+/home/node/airbyte/sources/tromzo-source/resources/queries/tool-names.gql
+/home/node/airbyte/sources/tromzo-source/resources/queries/findings.gql
+/home/node/airbyte/sources/team-history-source/resources/queries/current-team-memberships.gql
+/home/node/airbyte/sources/team-history-source/resources/queries/previous-team-memberships.gql
+/home/node/airbyte/sources/vanta-source/resources/Organization.gql
+/home/node/airbyte/sources/buildkite-source/resources/gql/pipelines-query.gql
+/home/node/airbyte/sources/buildkite-source/resources/gql/pipeline-builds-query.gql
+/home/node/airbyte/sources/jira-source/resources/queries/tms-sprint-board.gql
+/home/node/airbyte/sources/jira-source/resources/queries/tms-project-boards.gql
+/home/node/airbyte/sources/jira-source/resources/queries/tms-project.gql
+/home/node/airbyte/sources/jira-source/resources/queries/get-teams.gql
+/home/node/airbyte/sources/xray-source/resources/queries/get-test-runs.gql
+/home/node/airbyte/sources/xray-source/resources/queries/get-test-plans.gql
+/home/node/airbyte/sources/xray-source/resources/queries/get-test-plan-tests.gql
+--- files mentioning UserEmail (json/yaml/graphql/sql/md/ts), excluding converters dir
+/home/node/airbyte/sources/wolken-source/resources/schemas/incidents.json
+/home/node/airbyte/faros-airbyte-common/resources/github/schemas/schema.docs-enterprise.3.13.graphql
+/home/node/airbyte/faros-airbyte-common/resources/github/schemas/schema.docs-enterprise.3.10.graphql
+/home/node/airbyte/faros-airbyte-common/resources/github/schemas/schema.docs-enterprise.3.11.graphql
+/home/node/airbyte/faros-airbyte-common/resources/github/schemas/schema.docs.graphql
+/home/node/airbyte/faros-airbyte-common/resources/github/schemas/schema.docs-enterprise.3.12.graphql
+/home/node/airbyte/node_modules/@gitbeaker/core/dist/map.json
+/home/node/airbyte/node_modules/@gitbeaker/core/README.md
+--- candidate schema packages
+/home/node/airbyte/node_modules/@types/json-schema
+/home/node/airbyte/node_modules/faros-js-client
+/home/node/airbyte/node_modules/@faros-ai/canonical-models
