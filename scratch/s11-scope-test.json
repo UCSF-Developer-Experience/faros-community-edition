@@ -8,7 +8,24 @@
       },
       "organizations": ["InfraLore"],
       "repositories": ["InfraLore/make_for_devops"],
-      "cutoff_days": 30
+      "cutoff_days": 30,
+      "run_mode": "Custom",
+      "custom_streams": [
+        "faros_organizations",
+        "faros_repositories",
+        "faros_users",
+        "faros_commits",
+        "faros_pull_requests",
+        "faros_pull_request_comments",
+        "faros_tags",
+        "faros_releases",
+        "faros_workflows",
+        "faros_workflow_runs",
+        "faros_workflow_jobs",
+        "faros_issues",
+        "faros_issue_comments",
+        "faros_labels"
+      ]
     }
   },
   "dst": {
