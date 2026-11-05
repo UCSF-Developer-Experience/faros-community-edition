@@ -25,6 +25,13 @@
         "faros_issues",
         "faros_issue_comments",
         "faros_labels"
+      ],
+      "skip_reset_models": [
+        "cicd_Release",
+        "cicd_ReleaseTagAssociation",
+        "vcs_Tag",
+        "vcs_RepositoryTag",
+        "cicd_Pipeline"
       ]
     }
   },
